@@ -2,14 +2,14 @@
 ; take a list of JP2 files from the main archive transfer them to a remote machine
 ;
 ;
-PRO HV_JP2_TRANSFER_DIRECT,input
+PRO HV_JP2_TRANSFER_DIRECT,write_this
   progname = 'hv_jp2_transfer_direct'
 ;
 ; Get various details about the setup
 ;
-  wby = HV_WRITTENBY()
+  wby = HV_WRITTENBY(write_this)
   g = HVS_GEN()
-  storage = HV_STORAGE()
+  storage = HV_STORAGE(write_this)
 ;
 ; Transfer start-time
 ;

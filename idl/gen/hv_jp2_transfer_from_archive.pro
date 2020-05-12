@@ -1,11 +1,11 @@
 ;
 ; 5 may 2010
 ;
-PRO HV_JP2_TRANSFER_FROM_ARCHIVE,nickname,measurement,ds,de,$
+PRO HV_JP2_TRANSFER_FROM_ARCHIVE,write_this,nickname,measurement,ds,de,$
                                  directory = directory,$
                                  details_file = details_file
 ;
-  storage = HV_STORAGE()
+  storage = HV_STORAGE(write_this)
 ;
 ; Get the information
 ;
@@ -64,7 +64,7 @@ PRO HV_JP2_TRANSFER_FROM_ARCHIVE,nickname,measurement,ds,de,$
                mm + path_sep() + $
                dd + path_sep() + $
                m[i] + path_sep()
-        HV_JP2_TRANSFER,sdir = sdir
+        HV_JP2_TRANSFER,write_this,sdir = sdir
 
         tai = tai + one_day
      endrep until (tai gt end_tai)
